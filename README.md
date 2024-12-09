@@ -7,7 +7,7 @@ I’m an aspiring Data Analyst passionate about uncovering insights and creating
 
 ## 🌟 About Me  
 - 🎓 Currently studying **Data Analytics Course**, focusing on real-world projects and problem-solving.
-- 💻 Practicing SQL on **SQL-ex**, mastering database queries and optimization.
+- 💻 Practicing SQL on [**SQL-ex**](https://www.sql-ex.com/), mastering database queries and optimization.
 - 🏆 Completed the **Google Data Analytics Professional Certificate** on Coursera, gaining skills in data cleaning, analysis, and visualization.
 - 🤖 Regularly enhancing my knowledge using **AI tools** for practice and idea generation.
 
