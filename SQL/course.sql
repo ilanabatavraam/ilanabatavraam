@@ -54,3 +54,46 @@ WHERE movie.rating = (
         LIMIT 1
         )
 GROUP BY film_category.category_id
+
+
+/*Create a pivot table. Count the orders placed for each month over several years: from 2011 to 2013. The final table should include four fields: invoice_month, year_2011, year_2012, and year_2013. The invoice_month field should store the month as a number from 1 to 12.
+If no orders were placed in a particular month, that month’s number should still appear in the table.*/
+SELECT 
+    EXTRACT(MONTH FROM CAST(invoice_date AS date)) AS invoice_month,
+    COALESCE(SUM(CASE WHEN EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2011 THEN total END), 0) AS year_2011,
+    COALESCE(SUM(CASE WHEN EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2012 THEN total END), 0) AS year_2012,
+    COALESCE(SUM(CASE WHEN EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2013 THEN total END), 0) AS year_2013
+FROM invoice
+GROUP BY invoice_month
+ORDER BY invoice_month;
+
+
+/*Select the last names of customers who:
+	•	Placed at least one order in January 2013,
+	•	And also placed at least one order in the other months of the same year.
+Customers who placed orders only in January and did not order anything during the rest of the year should not be included in the table.*/
+SELECT last_name
+FROM client
+WHERE customer_id IN (
+    -- Jan
+    SELECT customer_id
+    FROM invoice
+    WHERE EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2013
+      AND EXTRACT(MONTH FROM CAST(invoice_date AS date)) = 1
+)
+AND customer_id IN (
+    -- Not Jan
+    SELECT customer_id
+    FROM invoice
+    WHERE EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2013
+      AND EXTRACT(MONTH FROM CAST(invoice_date AS date)) <> 1
+);
+
+
+/*Generate statistics for movie categories. Display two fields in the resulting table:
+	•	The name of the category.
+	•	The number of movies in that category.
+For the second field, select movies based on the following condition: count only movies featuring actors and actresses who appeared in more than seven movies released after 2013.
+Name the fields name_category and total_films, respectively. Sort the table by the number of movies in descending order, and then by the category name in lexicographical order.*/
+
+--... in process
