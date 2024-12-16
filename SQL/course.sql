@@ -88,12 +88,3 @@ AND customer_id IN (
     WHERE EXTRACT(YEAR FROM CAST(invoice_date AS date)) = 2013
       AND EXTRACT(MONTH FROM CAST(invoice_date AS date)) <> 1
 );
-
-
-/*Generate statistics for movie categories. Display two fields in the resulting table:
-	•	The name of the category.
-	•	The number of movies in that category.
-For the second field, select movies based on the following condition: count only movies featuring actors and actresses who appeared in more than seven movies released after 2013.
-Name the fields name_category and total_films, respectively. Sort the table by the number of movies in descending order, and then by the category name in lexicographical order.*/
-
---... in process
