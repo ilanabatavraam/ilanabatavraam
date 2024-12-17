@@ -18,3 +18,7 @@
 - 2024-12-16
 - Returned to the **SQL-EX** platform today.
 - Focused on solving tasks related to **JOIN** operations.
+
+
+- 2024-12-17
+- I solved **10 SQL-ex tasks**, primarily focusing on **table joins** and **subqueries**.
