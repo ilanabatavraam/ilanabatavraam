@@ -21,6 +21,6 @@
 - I solved **10 SQL-ex tasks**, primarily focusing on **table joins** and **subqueries**.
 
 
-## 2024-12-17
+## 2024-12-18
 - I didn’t study for long, but I spent some time in the evening on just one exercise.  
 I want to solve it on my own without any hints, so it’s taking longer (It's a bit harder). Tomorrow, I plan to dedicate more time and make real progress.
