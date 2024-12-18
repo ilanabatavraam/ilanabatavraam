@@ -148,3 +148,27 @@ WHERE Product.maker IN (
     WHERE type = 'Printer'
 )
 GROUP BY Product.maker;
+
+
+-- Using Product table, find out the number of makers who produce only one model.
+SELECT Product.maker, COUNT(PC.model)
+FROM Product
+INNER JOIN PC ON PC.model = Product.model 
+GROUP BY Product.maker
+HAVING COUNT(PC.model) = 1
+
+SELECT COUNT(Product.maker)
+FROM Product
+INNER JOIN PC ON PC.model = Product.model 
+GROUP BY Product.maker
+HAVING COUNT(PC.model) = 1
+
+SELECT COUNT(Product.maker), Product.maker
+FROM Product
+INNER JOIN Laptop ON Laptop.model = Product.model 
+GROUP BY Product.maker
+HAVING COUNT(Laptop.model) = 1
+
+SELECT SUM(maker) AS qty
+FROM Product
+WHERE 
