@@ -150,25 +150,75 @@ WHERE Product.maker IN (
 GROUP BY Product.maker;
 
 
--- Using Product table, find out the number of makers who produce only one model.
-SELECT Product.maker, COUNT(PC.model)
-FROM Product
-INNER JOIN PC ON PC.model = Product.model 
-GROUP BY Product.maker
-HAVING COUNT(PC.model) = 1
+-- Using Product table, find out the number of makers who produce only one model. (It will be long way)
+-- SELECT Product.maker, COUNT(PC.model)
+-- FROM Product
+-- INNER JOIN PC ON PC.model = Product.model 
+-- GROUP BY Product.maker
+-- HAVING COUNT(PC.model) = 1
 
-SELECT COUNT(Product.maker)
-FROM Product
-INNER JOIN PC ON PC.model = Product.model 
-GROUP BY Product.maker
-HAVING COUNT(PC.model) = 1
+-- SELECT COUNT(Product.maker)
+-- FROM Product
+-- INNER JOIN PC ON PC.model = Product.model 
+-- GROUP BY Product.maker
+-- HAVING COUNT(PC.model) = 1
 
-SELECT COUNT(Product.maker), Product.maker
-FROM Product
-INNER JOIN Laptop ON Laptop.model = Product.model 
-GROUP BY Product.maker
-HAVING COUNT(Laptop.model) = 1
+-- SELECT COUNT(Product.maker), Product.maker
+-- FROM Product
+-- INNER JOIN Laptop ON Laptop.model = Product.model 
+-- GROUP BY Product.maker
+-- HAVING COUNT(Laptop.model) = 1
 
-SELECT SUM(maker) AS qty
-FROM Product
-WHERE 
+-- SELECT DISTINCT Product.maker, COUNT(PC.model)
+-- FROM Product
+-- INNER JOIN PC ON Product.model = PC.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(PC.model) = 1
+-- UNION
+-- SELECT DISTINCT Product.maker, COUNT(Laptop.model)
+-- FROM Product
+-- INNER JOIN Laptop ON Product.model = Laptop.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(Laptop.model) = 1
+-- UNION
+-- SELECT DISTINCT Product.maker, COUNT(Printer.model)
+-- FROM Product
+-- INNER JOIN Printer ON Product.model = Printer.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(Printer.model) = 1
+
+-- SELECT DISTINCT Product.maker, COUNT(PC.model)
+-- FROM PC 
+-- INNER JOIN Product ON Product.model = PC.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(PC.model) = 1
+
+-- SELECT DISTINCT Product.maker, COUNT(Laptop.model)
+-- FROM Laptop 
+-- INNER JOIN Product ON Product.model = Laptop.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(Laptop.model) = 1
+
+-- SELECT DISTINCT Product.maker, COUNT(Printer.model)
+-- FROM Printer 
+-- INNER JOIN Product ON Product.model = Printer.model
+-- GROUP BY Product.maker
+-- HAVING COUNT(Printer.model) = 1
+
+-- SELECT DISTINCT Product.maker,
+--        COUNT(PC.model)
+-- FROM Product 
+-- INNER JOIN PC ON Product.model = PC.model   
+-- GROUP BY Product.maker
+-- UNION ALL
+-- SELECT DISTINCT Product.maker,
+--        COUNT(Laptop.model)
+-- FROM Product 
+-- INNER JOIN Laptop ON Product.model = Laptop.model   
+-- GROUP BY Product.maker
+-- UNION ALL
+-- SELECT DISTINCT Product.maker,
+--        COUNT(Printer.model)
+-- FROM Product 
+-- INNER JOIN Printer ON Product.model = Printer.model
+-- GROUP BY Product.maker   
