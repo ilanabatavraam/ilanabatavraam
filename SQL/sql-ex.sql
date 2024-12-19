@@ -222,3 +222,60 @@ GROUP BY Product.maker;
 -- FROM Product 
 -- INNER JOIN Printer ON Product.model = Printer.model
 -- GROUP BY Product.maker   
+--v.1
+SELECT COUNT(Product.maker)
+FROM Product
+LEFT JOIN PC ON Product.model = PC.model
+LEFT JOIN Laptop ON Product.model = Laptop.model
+LEFT JOIN Printer ON Product.model = Printer.model
+GROUP BY Product.maker
+HAVING COUNT(DISTINCT COALESCE(PC.model, Laptop.model, Printer.model)) = 1;
+--v.2
+SELECT SUM(qty) AS gty
+FROM (
+    SELECT DISTINCT Product.maker,
+       COUNT(PC.model) AS qty
+    FROM Product 
+    INNER JOIN PC ON Product.model = PC.model   
+    GROUP BY Product.maker
+    UNION ALL
+    SELECT DISTINCT Product.maker,
+        COUNT(Laptop.model) AS qty
+    FROM Product 
+    INNER JOIN Laptop ON Product.model = Laptop.model   
+    GROUP BY Product.maker
+    UNION ALL
+    SELECT DISTINCT Product.maker,
+        COUNT(Printer.model) AS qty
+    FROM Product 
+    INNER JOIN Printer ON Product.model = Printer.model
+    GROUP BY Product.maker 
+) AS all_makers
+GROUP BY maker
+HAVING SUM(qty) = 1;
+
+
+-- The database of naval ships that took part in World War II is under consideration. The database consists of the following relations:
+-- Classes(class, type, country, numGuns, bore, displacement)
+-- Ships(name, class, launched)
+-- Battles(name, date)
+-- Outcomes(ship, battle, result)
+
+-- For ship classes with a gun caliber of 16 in. or more, display the class and the country.
+SELECT class,
+       country
+FROM Classes
+WHERE bore >= 16;
+
+
+-- One of the characteristics of a ship is one-half the cube of the calibre of its main guns (mw).
+-- Determine the average ship mw with an accuracy of two decimal places for each country having ships in the database.
+SELECT country,
+    ROUND(
+    CAST(AVG(
+    CAST((POWER(CAST(bore AS FLOAT), 3) / 2) AS FLOAT)
+    ) AS FLOAT) 
+    , 2)  
+FROM Classes
+GROUP BY country
+-- still in process

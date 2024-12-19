@@ -28,3 +28,4 @@ I want to solve it on my own without any hints, so it’s taking longer (It's a 
 
 ## 2024-12-19
 - I can create a table to find which 'maker' produces only one 'model', but that feels like a temporary fix. I could use a WITH clause for it, but it wouldn’t be flexible enough for other tasks. I’d end up rewriting it every time. I’m trying to figure out a more universal solution that works across different cases. Still thinking it through.
+- Continuing to work on subquery practice tasks.
