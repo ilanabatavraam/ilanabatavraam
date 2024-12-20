@@ -277,5 +277,31 @@ SELECT country,
     ) AS FLOAT) 
     , 2)  
 FROM Classes
-GROUP BY country
--- still in process
+GROUP BY country;
+
+
+-- Get the ships sunk in the North Atlantic battle.
+-- Result set: ship.
+SELECT ship
+FROM Outcomes
+WHERE battle = 'North Atlantic'
+      AND result = 'sunk';
+
+
+-- In accordance with the Washington Naval Treaty concluded in the beginning of 1922, it was prohibited to build battle ships with a displacement of more than 35 thousand tons.
+-- Get the ships violating this treaty (only consider ships for which the year of launch is known).
+-- List the names of the ships.
+SELECT Ships.name
+FROM Ships
+INNER JOIN Classes ON Ships.class = Classes.class
+WHERE Ships.launched >= 1922
+      AND Classes.displacement >= 35000;
+
+
+-- Find models in the Product table consisting either of digits only or Latin letters (A-Z, case insensitive) only.
+-- Result set: model, type
+SELECT model,
+       type
+FROM Product
+WHERE model NOT LIKE '%[^0-9]%'
+      OR model NOT LIKE '%[^a-zA-Z]%';
