@@ -305,3 +305,24 @@ SELECT model,
 FROM Product
 WHERE model NOT LIKE '%[^0-9]%'
       OR model NOT LIKE '%[^a-zA-Z]%';
+
+
+-- Find countries that ever had classes of both battleships (‘bb’) and cruisers (‘bc’).
+SELECT country
+FROM Classes
+WHERE type = 'bb'
+GROUP BY country
+INTERSECT
+SELECT country
+FROM Classes
+WHERE type = 'bc'
+GROUP BY country
+
+
+-- Get the makers who produce only one product type and more than one model. Output: maker, type.
+SELECT maker,
+       MIN(type) AS type
+FROM Product            
+GROUP BY maker
+HAVING COUNT(DISTINCT type) = 1
+       AND COUNT(DISTINCT model) > 1
