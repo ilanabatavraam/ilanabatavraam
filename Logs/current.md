@@ -11,3 +11,6 @@
 
 ## 2025-01-08
 - I’ve started my Python journey. I’ve learned basic syntax and the differences from JavaScript. Multiplying lists and strings is fun. I’m going to spend around 2 hours a day to become “fluent” in this lang.
+
+## 2025-01-09
+- I've spent about 2 hours learning Python syntax, including functions and loops. 

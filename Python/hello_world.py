@@ -108,3 +108,84 @@ stations = ['a', 'b', 'c', 'd']
 info = '>'.join(stations) 
 print(info)
 'a>b>c>d'
+
+years = [1994, 1972, 2008, 1993]
+for year in years:
+    print(year) 
+    print('*' * 20)
+
+prices = [1500, 2999, 7499, 3220]
+for i in range(len(prices)):
+    prices[i] -= 1000
+print(prices)
+
+# counter
+movies_duration = [142, 175, 152, 195, 201, 154, 178, 139, 133, 163, 136]
+total_duration = 0
+for duration in movies_duration:
+    total_duration += duration
+
+print(total_duration)
+
+
+movies_duration = [142, 175, 152, 195, 201, 154, 178, 139, 133, 163, 136]
+total_duration = sum(movies_duration)
+print(total_duration)
+
+# import math
+# sum() +
+# prod() *
+# max()
+# min()
+# factorial()
+
+# factorial
+number = 8
+fact = 1 
+for i in range(1, number + 1):
+    fact *= i
+print(fact)
+
+# how to print a table
+for row in movies_table: 
+    for elem in row: 
+        print(elem, end='   ')
+    print() 
+
+lambda row: row[5]
+movies_table_sorted = sorted(movies_table, key=lambda row: row[5], reverse=True)
+
+# islower() true/false
+# isdigit()
+# isalpha()
+
+for i in items:
+while total_weight < capacity:
+
+# functions
+def omelet(eggs_number = 1):
+    result = str(eggs_number) + ' omelets'
+    return result 
+
+
+def get_hours_and_minutes(time_string):
+    return int(time_string.split(':')[0]), int(time_string.split(':')[1])
+
+time_str = '12:35'
+hours, minutes = get_hours_and_minutes(time_str)
+print(hours, minutes)
+
+
+
+
+def get_minutes_and_seconds(time_string):
+    time_list = time_string.split(':')
+    m = int(time_list[0])
+    s = int(time_list[1])
+    return m, s
+
+def check_song_duration(time_string):
+    return (get_minutes_and_seconds(time_string)[0] * 60) + get_minutes_and_seconds(time_string)[1] <= 210
+
+print(check_song_duration('4:35'))
+print(check_song_duration('2:10'))
