@@ -189,3 +189,37 @@ def check_song_duration(time_string):
 
 print(check_song_duration('4:35'))
 print(check_song_duration('2:10'))
+
+
+financial_info = {
+    'American Express': 93.23,
+    'Boeing': 178.44,
+    'Coca-Cola': 45.15,
+    'Nike': 97.99,
+    'JPMorgan':96.27,
+    'Microsoft': 213.67,
+    'Walmart': 130.68 
+} 
+coca_cola_price = financial_info['Coca-Cola'] 
+print(coca_cola_price)
+
+try:
+    pepsi_price = financial_info['Pepsi']
+    print(pepsi_price)
+except:
+    print('Ключ Pepsi отсутствует!')
+
+nike_price = financial_info.get('Nike')
+print(nike_price)
+
+
+game_scores = {
+    'A': [23, 35, 70, 45],
+    'B': [38, 72, 65, 80],
+    'C': [30, 35, 90, 73],
+    'D': [45, 20, 95, 80]
+}
+
+for person, points in game_scores.items(): 
+    total_points = sum(points)
+    print(f'{person} - {total_points}') 

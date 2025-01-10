@@ -14,3 +14,6 @@
 
 ## 2025-01-09
 - I've spent about 2 hours learning Python syntax, including functions and loops. 
+
+## 2025-01-10
+- I learned syntax of dict in Python. Seems very the same with js.
