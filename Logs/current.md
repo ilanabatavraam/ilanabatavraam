@@ -20,3 +20,4 @@
 
 ## 2025-01-11
 - Officially started with pandas. I’ve begun learning about the syntax and opportunities.
+- Learned about GIGO: garbage in — garbage out

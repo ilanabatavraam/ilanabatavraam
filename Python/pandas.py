@@ -12,7 +12,7 @@ entries = ['artist', 'track']
 playlist = pd.DataFrame(data=music, columns=entries)
 print(playlist)
 
-#read_csv() to open csv
+#read_csv() to open csv     board_df = pd.read_csv('game_board.csv')
 
 # to print 5 rows, print(data_df.head()) use .head() or fill how much you want. ex.: .head(10)
 
