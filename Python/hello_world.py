@@ -223,3 +223,92 @@ game_scores = {
 for person, points in game_scores.items(): 
     total_points = sum(points)
     print(f'{person} - {total_points}') 
+
+
+# to print dict + loops as a table
+from json import dumps
+# indent for gaps
+# ensure_ascii for ru
+print(dumps(filtered_order, indent=4, ensure_ascii=False))
+
+
+nba_players = {
+    'a': [2191, 2818, 2335],
+    'b': [2251, 1505, 1698],
+    'c': [1962, 2067, 2009],
+}
+for p in nba_players:
+    summ = 0
+    for i in nba_players[p]:
+        summ += i
+    avg = summ / len(nba_players[p])
+    print(f'{p} {int(avg)}')
+
+# OR
+
+for player, score in nba_players.items():
+    avg = int(sum(score) / len(nba_players[player]))
+    print(f'{player} {avg}')
+
+
+tracklist = [
+    {
+        'title': 'Stronger', # название трека
+        'artist': 'Saimoo', # исполнитель
+        'duration': 145, # продолжительность (в секундах)
+        'genre': 'Deep House', # жанр
+    },
+    {
+        'title': 'Alors On Danse',
+        'artist': 'Stromae',
+        'duration': 205,
+        'genre': 'Hip-Hop',
+    },
+    {
+        'title': 'Don\'t Be So Shy',
+        'artist': 'Imany (Filatov & Karas Remix)',
+        'duration': 190,
+        'genre': 'Deep House',
+    },
+    {
+        'title': 'Off My Mind',
+        'artist': 'Matvey Emerson',
+        'duration': 130,
+        'genre': 'Deep House',
+    },
+    {
+        'title': 'Now You\'re Gone',
+        'artist': 'Basshunter',
+        'duration': 154,
+        'genre': 'Eurodance',
+    },
+    {
+        'title': 'It Was A Good Day',
+        'artist': 'Ice Cube',
+        'duration': 260,
+        'genre': 'Hip-Hop',
+    },
+    {
+        'title': 'Diva',
+        'artist': 'Beyonce',
+        'duration': 200,
+        'genre': 'Hip-Hop',
+    }
+]
+
+hip_hop_duration = 0
+
+for track in tracklist:
+    if track['genre'] == 'Hip-Hop':
+        hip_hop_duration += track['duration']
+
+print(hip_hop_duration)
+
+deep_house_tracklist = []
+
+for i in tracklist:
+    if i['genre'] == 'Deep House':
+        deep_house_tracklist.append(i)
+
+for track in deep_house_tracklist:
+    print(dumps(track, indent=4))

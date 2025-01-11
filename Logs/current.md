@@ -17,3 +17,6 @@
 
 ## 2025-01-10
 - I learned syntax of dict in Python. Seems very the same with js.
+
+## 2025-01-11
+- Officially started with pandas. I’ve begun learning about the syntax and opportunities.
