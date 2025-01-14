@@ -21,3 +21,6 @@
 ## 2025-01-11
 - Officially started with pandas. I’ve begun learning about the syntax and opportunities.
 - Learned about GIGO: garbage in — garbage out
+
+## 2025-01-14
+- Today I learned about preparing and cleaning data with python. Using duplicated() with reset_index(), isna(), fillna(), dropna(), etc. 

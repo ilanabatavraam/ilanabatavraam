@@ -85,3 +85,47 @@ pop = df[df['genre'] == 'pop']
 pop_time = pop['total play']
 pop_haters = pop_time[pop_time <= 5].count() ## !!!
 print( pop_haters)
+
+
+df.columns ## all columns
+df = df.rename(columns={'  user_id': 'user_id', 'total play': 'total_play', 'Artist': 'artist'})
+
+# isna() is finding NaN
+print(cholera.isna().sum()) 
+# isnull() is working, but it's better to use # isna()
+
+# fillna() is filling smth instead of Nan
+cholera['imported_cases'] = cholera['imported_cases'].fillna(0)
+
+# dropna() is checking choosed columns to remove rows with Nan
+cholera = cholera.dropna(subset=['total_cases', 'deaths', 'case_fatality_rate'])
+
+# or removing columns, not rows
+cholera = cholera.dropna(axis='columns')
+
+#duplicated()
+print(df.duplicated().sum()) 
+
+# printing only duplicates
+duplicated_df = df[df.duplicated()].head()
+
+# removing duplicates
+#drop_duplicates()
+df = df.drop_duplicates()
+
+# to correct index after cleaning
+df = df.drop_duplicates().reset_index()
+# and remove old index
+df = df.drop_duplicates().reset_index(drop=True)
+
+# unique()  to check manually
+print(tennis['name'].unique())
+
+# replace() to rename not unique
+tennis['name'] = tennis['name'].replace('Roger Federer', 'RF')
+tennis['name'] = tennis['name'].replace('Roger Fderer', 'RF')
+tennis['name'] = tennis['name'].replace('Roger Fdrer', 'RF')
+#  or smarter
+duplicates = ['Roger Fderer', 'Roger Fdrer', 'Roger Federer'] 
+name = 'RF' 
+tennis['name'] = tennis['name'].replace(duplicates, name) 
