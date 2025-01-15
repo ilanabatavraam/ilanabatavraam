@@ -27,3 +27,11 @@
 
 ## 2025-01-15
 - I completed my first mini task with pandas by myself.
+- HEART Model:
+	•	Happiness — satisfaction or happiness. For example, a high rating given to the app by a user.
+	•	Engagement — user engagement. For example, the number of actions a user performs within a certain time frame.
+	•	Adoption — adoption of the service. For example, the acceptance of a new update.
+	•	Retention — user retention. For example, how many times a user opens the app over a certain period.
+	•	Task Success — literally, “success of tasks.” This metric indicates whether the user’s expectations from the service are being met.
+- learning split-apply-combine method
+- learning about .median() and .mean(), sort_values(),  groupby()

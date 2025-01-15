@@ -129,3 +129,28 @@ tennis['name'] = tennis['name'].replace('Roger Fdrer', 'RF')
 duplicates = ['Roger Fderer', 'Roger Fdrer', 'Roger Federer'] 
 name = 'RF' 
 tennis['name'] = tennis['name'].replace(duplicates, name) 
+
+# groupby()
+track_grouping = df.groupby('user_id')['genre_name'].count()
+track_counting = track_grouping[track_grouping > 50] #!!!
+
+# sort_values()
+print(exoplanet.sort_values(by='radius').head(30))
+print(exoplanet[exoplanet['radius'] < 1])
+print(exoplanet[exoplanet['discovered'] == 2014])
+exo_small_14 = exo_small_14[exo_small_14['discovered'] == 2014]
+print(exo_small_14) 
+print(exo_small_14.sort_values(by='radius', ascending=False))
+
+# .median() and .mean()
+
+
+df = pd.read_csv('music_log_upd.csv')
+
+pop_music = df[df['genre_name'] == 'pop']
+pop_music = pop_music[pop_music['total_play_seconds'] != 0]
+
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+
+pop_music_max_info = pop_music[pop_music['total_play_seconds'] == pop_music_max_total_play]['total_play_seconds'] 
+print(pop_music_max_info)
