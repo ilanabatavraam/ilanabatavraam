@@ -23,4 +23,7 @@
 - Learned about GIGO: garbage in — garbage out
 
 ## 2025-01-14
-- Today I learned about preparing and cleaning data with python. Using duplicated() with reset_index(), isna(), fillna(), dropna(), etc. 
+- Today I learned about preparing and cleaning data with python. Using duplicated() with reset_index(), isna(), fillna(), dropna(), etc.
+
+## 2025-01-15
+- I completed my first mini task with pandas by myself.
