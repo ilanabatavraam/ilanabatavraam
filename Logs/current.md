@@ -35,3 +35,6 @@
 	•	Task Success — literally, “success of tasks.” This metric indicates whether the user’s expectations from the service are being met.
 - learning split-apply-combine method
 - learning about .median() and .mean(), sort_values(),  groupby()
+
+## 2025-01-16
+- mini tasks with pandas + preparetion for jupiter notebook

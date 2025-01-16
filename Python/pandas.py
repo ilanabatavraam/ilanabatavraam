@@ -154,3 +154,16 @@ pop_music_max_total_play = pop_music['total_play_seconds'].max()
 
 pop_music_max_info = pop_music[pop_music['total_play_seconds'] == pop_music_max_total_play]['total_play_seconds'] 
 print(pop_music_max_info)
+
+
+genre_rock = df[df['genre_name'] == 'rock']
+genre_rock = genre_rock[genre_rock['total_play_seconds'] > 0]
+genre_rock_max = genre_rock['total_play_seconds'].max()
+genre_rock_min = genre_rock['total_play_seconds'].min()
+
+data = [['pop', 8663, 34.6, 1158.03, 0.000794],
+       ['rock', 6828, 33.3, 1699.14882, 0.014183]]
+columns = ['genre_name','total_track','skip_track','max_total_time','min_total_time']
+
+
+research_genres_result = pd.DataFrame(data=data, columns=columns)
