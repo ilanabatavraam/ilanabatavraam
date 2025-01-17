@@ -38,3 +38,6 @@
 
 ## 2025-01-16
 - mini tasks with pandas + preparetion for jupiter notebook
+
+## 2025-01-17
+- starting my first data analysis project using Jupyter Notebook
