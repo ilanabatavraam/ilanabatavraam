@@ -41,3 +41,8 @@
 
 ## 2025-01-17
 - starting my first data analysis project using Jupyter Notebook
+
+## 2025-01-18
+- prepared data for my first analysis
+- started to learn about preparation data before analysis
+- pent approximately 2 hours practicing data cleaning

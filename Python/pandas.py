@@ -167,3 +167,41 @@ columns = ['genre_name','total_track','skip_track','max_total_time','min_total_t
 
 
 research_genres_result = pd.DataFrame(data=data, columns=columns)
+
+
+email_visits = 1000 
+context_visits = 2500
+email_purchases = 50 
+context_purchases = 100 
+
+email_conversion = (email_purchases / email_visits) * 100
+context_conversion = (100 / context_visits) * 100
+
+print('Email Conversion: {:.0f}%'.format(email_conversion))
+print('Context Conversion: {:.0f}%'.format(context_conversion))
+
+
+purchases = pd.read_csv('/datasets/returned.csv')
+purchases['total'] = purchases['first'] + purchases['repeated']
+purchases['repeated_share'] = purchases['repeated'] / purchases['total']
+print(purchases.sort_values(by='repeated_share', ascending=False))
+
+
+logs = pd.read_csv('/datasets/logs.csv')
+print(f"Уникальных email: {len(logs['email'].unique())}")
+print(f"Уникальных User ID: {len(logs['user_id'].unique())}")
+
+
+hogwarts_points = pd.read_csv('/datasets/hogwarts_points.csv')
+hogwarts_points['faculty_name'] = hogwarts_points['faculty_name'].fillna(value='Gryffindor')
+print('Total student points:', hogwarts_points['points'].sum())
+print('Total faculty points:', hogwarts_points.groupby('faculty_name')['points'].sum().sum())
+
+print('The Cup goes to:', hogwarts_points.groupby('faculty_name')['points'].sum().idxmax())
+
+
+logs = pd.read_csv('/datasets/logs.csv')
+visits = logs.groupby('source')['purchase'].count()
+purchase = visits = logs.groupby('source')['purchase'].sum()
+conversion = purchase / visits
+print(conversion)
