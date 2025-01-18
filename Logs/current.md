@@ -45,4 +45,5 @@
 ## 2025-01-18
 - prepared data for my first analysis
 - started to learn about preparation data before analysis
-- pent approximately 2 hours practicing data cleaning
+- spent approximately 2 hours practicing data cleaning
+- reviewed basic loc usage and studied logical indexing with loc. it's really interesting how we can work using .loc + lists with boolean data

@@ -205,3 +205,28 @@ visits = logs.groupby('source')['purchase'].count()
 purchase = visits = logs.groupby('source')['purchase'].sum()
 conversion = purchase / visits
 print(conversion)
+
+## catching only string from cell
+data = pd.read_csv('/datasets/projects.csv')
+print(data.loc[data['Name'] == 'A', 'Col'].values[0])
+#OR
+print(data.loc[data['Name'] == 'A', 'Col'].to_string(index=False))
+data.loc[:, 'New'] = data.loc[:, 'New'].fillna('+')
+rows = [True, False, True, False, False, False, True, False]
+print(data.loc[rows])
+rows = data['New'] == '+'
+print(rows)
+# 0     True
+# 1     True
+# 2    False
+# 3     True
+# 4    False
+# 5    False
+# 6     True
+# 7    False
+
+print(data.loc[(data['New'] == '+') & (data['Role'] == 'coder')]) 
+
+
+term = (data['Role'] == 'coder') & (data['New'] == '+')
+data.loc[term, 'New'] = '-'
