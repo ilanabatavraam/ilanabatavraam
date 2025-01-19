@@ -230,3 +230,40 @@ print(data.loc[(data['New'] == '+') & (data['Role'] == 'coder')])
 
 term = (data['Role'] == 'coder') & (data['New'] == '+')
 data.loc[term, 'New'] = '-'
+
+game_survey.loc[game_survey['gender'] == 'None', 'gender'] = 'f'
+
+## agg()
+logs_grouped = logs.groupby('source').agg({'purchase': ['count', 'sum']})
+# purchase       
+# source     count   sum        
+# None        1674   108
+# context    52032  3029
+# email      12279   913
+# other     133834  8041
+# undef        181    12 
+
+
+logs = pd.read_csv('/datasets/logs.csv')
+logs['email'] = logs['email'].fillna(value='')
+logs.loc[logs['source'] == 'None', 'source'] = 'unknown' 
+print(logs['source'].value_counts())
+# other      133834
+# context     52032
+# email       12279
+# unknown      1674
+# undef         181
+# Name: source, dtype: int64
+
+logs_grouped = logs.groupby('source').agg({'purchase': ['count', 'sum']})
+logs_grouped['conversion'] = (
+    logs_grouped['purchase']['sum'] / logs_grouped['purchase']['count']
+)
+print(logs_grouped)
+#         purchase       conversion
+#            count   sum
+# source
+# context    52032  3029   0.058214
+# email      13953  1021   0.073174
+# other     133834  8041   0.060082
+# undef        181    12   0.066298
