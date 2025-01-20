@@ -275,3 +275,20 @@ df = pd.read_excel(
     '/datasets/eee.xlsx', sheet_name='1st'
 ) 
 subcategory_dict = pd.read_excel('/datasets/seo_data.xlsx', sheet_name='subcategory_ids')
+
+# to_numeric()
+transactions['amount'] = pd.to_numeric(transactions['amount'], errors='coerce')
+
+# astype()
+df['col'] = df['col'].astype('int') # or not int. wherewer you want
+
+
+data = pd.read_excel('/datasets/seo_data.xlsx', sheet_name='traffic_data')
+# total rows
+print(f'Number of row: {data.shape[0]}')
+# broken rows (2)
+print(data.loc[data['subcategory_id'] == 'total'])
+
+data = pd.read_excel('/datasets/seo_data.xlsx', sheet_name='traffic_data')
+data = data[(data['subcategory_id'] != 'total')]
+data['visits'] = data['visits'].astype('int')

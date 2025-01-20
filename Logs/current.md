@@ -54,3 +54,8 @@
 
 ## 2025-01-20
 - starting working with read_excel()
+- changing types in python .to_numeric() (only float)
+    errors='raise' — default behavior: an error is raised when encountering an invalid value, and the conversion to numbers is interrupted;
+    errors='coerce' — invalid values are forcibly replaced with NaN;
+    errors='ignore' — invalid values are ignored and remain unchanged.
+- working with astype() 
