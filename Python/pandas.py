@@ -267,3 +267,11 @@ print(logs_grouped)
 # email      13953  1021   0.073174
 # other     133834  8041   0.060082
 # undef        181    12   0.066298
+
+
+
+# .read_excel()
+df = pd.read_excel(
+    '/datasets/eee.xlsx', sheet_name='1st'
+) 
+subcategory_dict = pd.read_excel('/datasets/seo_data.xlsx', sheet_name='subcategory_ids')

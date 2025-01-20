@@ -48,6 +48,9 @@
 - spent approximately 2 hours practicing data cleaning
 - reviewed basic loc usage and studied logical indexing with loc. it's really interesting how we can work using .loc + lists with boolean data
 
-## 2025-01-29
+## 2025-01-19
 - worked with missing values in categorical variables
 - worked with missing values in numerical variables
+
+## 2025-01-20
+- starting working with read_excel()
