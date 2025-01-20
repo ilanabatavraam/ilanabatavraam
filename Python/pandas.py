@@ -292,3 +292,32 @@ print(data.loc[data['subcategory_id'] == 'total'])
 data = pd.read_excel('/datasets/seo_data.xlsx', sheet_name='traffic_data')
 data = data[(data['subcategory_id'] != 'total')]
 data['visits'] = data['visits'].astype('int')
+
+
+# .to_datetime()
+arrivals['date_datetime'] = pd.to_datetime(
+    arrivals['date'], format='%d.%m.%YZ%H:%M:%S'
+)
+    # •	%d — day of the month (from 01 to 31)
+	# •	%m — month number (from 01 to 12)
+	# •	%Y — four-digit year (e.g., 2019)
+	# •	Z — standard date and time separator
+	# •	%H — hour number in 24-hour format
+	# •	%I — hour number in 12-hour format
+	# •	%M — minutes (from 00 to 59)
+	# •	%S — seconds (from 00 to 59)
+
+arrivals['month'] = pd.DatetimeIndex(arrivals['date_datetime']).month
+# => num of the month
+
+position = pd.read_csv('/datasets/position.csv')
+position['timestamp'] = pd.to_datetime(
+    position['timestamp'], format='%Y-%m-%dT%H:%M:%S'
+)
+position['month'] = pd.DatetimeIndex(position['timestamp']).month
+print(position.groupby('month')['level'].mean())
+# month
+# 2    1.750000
+# 3    5.769231
+# 4    6.214286
+# Name: level, dtype: float64

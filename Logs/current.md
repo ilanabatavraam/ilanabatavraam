@@ -59,3 +59,13 @@
     errors='coerce' — invalid values are forcibly replaced with NaN;
     errors='ignore' — invalid values are ignored and remain unchanged.
 - working with astype() 
+- changing types to date using to_datetime() (datetime64)
+    •	%d — day of the month (from 01 to 31)
+	•	%m — month number (from 01 to 12)
+	•	%Y — four-digit year (e.g., 2019)
+	•	Z — standard date and time separator
+	•	%H — hour number in 24-hour format
+	•	%I — hour number in 12-hour format
+	•	%M — minutes (from 00 to 59)
+	•	%S — seconds (from 00 to 59)
+- DatetimeIndex!! class that works with dates
