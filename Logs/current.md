@@ -72,3 +72,4 @@
 
 ## 2025-01-22
 - working with try-except()
+- working with merge()

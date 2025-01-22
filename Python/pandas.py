@@ -349,3 +349,7 @@ for row in position:
         
 print(f'total {count_lines}')
 print(f'errors {wrong_lines}')
+
+
+data_subcategory = data.merge(subcategory_dict, on='subcategory_id', how='left')
+print(data_subcategory.head(10))
