@@ -69,3 +69,6 @@
 	•	%M — minutes (from 00 to 59)
 	•	%S — seconds (from 00 to 59)
 - DatetimeIndex!! class that works with dates
+
+## 2025-01-22
+- working with try-except()
