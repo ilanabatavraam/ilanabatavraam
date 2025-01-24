@@ -73,3 +73,6 @@
 ## 2025-01-22
 - working with try-except()
 - working with merge()
+
+## 2025-01-24
+- starting with pivot tables. seems really familiar to excel

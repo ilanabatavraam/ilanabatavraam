@@ -353,3 +353,13 @@ print(f'errors {wrong_lines}')
 
 data_subcategory = data.merge(subcategory_dict, on='subcategory_id', how='left')
 print(data_subcategory.head(10))
+
+## pivot_table()
+import pandas as pd
+data_final = pd.read_csv('/datasets/data_final.csv')
+data_pivot = data_final.pivot_table(index=['category_name', 'subcategory_name'], columns='source', values='visits', aggfunc='sum')
+data_pivot['ratio'] = data_pivot['organic'] / data_pivot['direct']
+
+sorted_data_pivot = data_pivot.loc[data_pivot['direct'] > 1000]
+
+print(sorted_data_pivot.sort_values(by='ratio', ascending=False).tail(10))
