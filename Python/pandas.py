@@ -363,3 +363,18 @@ data_pivot['ratio'] = data_pivot['organic'] / data_pivot['direct']
 sorted_data_pivot = data_pivot.loc[data_pivot['direct'] > 1000]
 
 print(sorted_data_pivot.sort_values(by='ratio', ascending=False).tail(10))
+
+
+import pandas as pd
+
+stock = pd.read_excel('/datasets/stock.xlsx', sheet_name='storehouse')
+xiaomi = stock[stock['item'] == 'Смартфон Xiaomi Redmi 6A 16GB']['count'].sum()
+huawei = stock[stock['item'] == 'Смартфон HUAWEI P30 lite']['count'].sum()
+
+stock = stock.drop_duplicates(subset=['item'], keep='first')
+stock = stock.reset_index(drop=True)
+
+stock.loc[0, 'count'] = xiaomi
+stock.loc[3, 'count'] = huawei
+
+print(stock)

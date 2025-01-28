@@ -76,3 +76,6 @@
 
 ## 2025-01-24
 - starting with pivot tables. seems really familiar to excel
+
+## 2025-01-28
+- strated working with duplicates using drop_duplicates + subset (columns) + keep (first, last)
