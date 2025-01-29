@@ -83,3 +83,5 @@
 
 ## 2025-01-29
 - dataframe decomposition
+- apply() method
+- Binning numerical values

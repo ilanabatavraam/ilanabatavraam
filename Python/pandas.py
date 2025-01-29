@@ -399,3 +399,19 @@ support = pd.read_csv('/datasets/support_upd.csv')
 support_dict=support[['type_message','type_id']]
 support_dict = support_dict.drop_duplicates().reset_index(drop=True)
 print(support_dict.sort_values(by='type_id', ascending=True))
+
+
+
+support_log = pd.read_csv('/datasets/support_log.csv')
+support_log_grouped = support_log.groupby('type_id').count()
+
+def alert_group(messages):
+    if messages <= 300:
+        return 'low'
+    elif (messages >= 301) & (messages <= 500):
+        return 'high'
+    elif messages > 500:
+        return 'critical'
+    
+support_log_grouped['alert_group'] = support_log_grouped['timestamp'].apply(alert_group)
+print(support_log_grouped.groupby('alert_group')['timestamp'].sum())
