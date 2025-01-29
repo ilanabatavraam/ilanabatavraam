@@ -79,3 +79,7 @@
 
 ## 2025-01-28
 - strated working with duplicates using drop_duplicates + subset (columns) + keep (first, last)
+- lower()
+
+## 2025-01-29
+- dataframe decomposition

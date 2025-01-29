@@ -377,4 +377,25 @@ stock = stock.reset_index(drop=True)
 stock.loc[0, 'count'] = xiaomi
 stock.loc[3, 'count'] = huawei
 
+
+
+df['a'] = df['a'].str.lower()
+
+stock = pd.read_excel('/datasets/stock.xlsx', sheet_name='storehouse')
+stock['item_lowercase'] = stock['item'].str.lower()
+
+apple = stock[stock['item_lowercase'] == 'смартфон apple iphone xr 64gb']['count'].sum()
+samsung = stock[stock['item_lowercase'] == 'смартфон samsung galaxy a30 32gb']['count'].sum()
+
+stock = stock.drop_duplicates(subset=['item_lowercase'], keep='first')
+stock = stock.reset_index(drop=True)
+
+stock.loc[3, 'count'] = apple
+stock.loc[stock['item_lowercase'] == 'смартфон samsung galaxy a30 32gb', 'count'] = samsung
 print(stock)
+
+
+support = pd.read_csv('/datasets/support_upd.csv')
+support_dict=support[['type_message','type_id']]
+support_dict = support_dict.drop_duplicates().reset_index(drop=True)
+print(support_dict.sort_values(by='type_id', ascending=True))
