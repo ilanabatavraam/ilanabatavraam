@@ -415,3 +415,28 @@ def alert_group(messages):
     
 support_log_grouped['alert_group'] = support_log_grouped['timestamp'].apply(alert_group)
 print(support_log_grouped.groupby('alert_group')['timestamp'].sum())
+
+
+
+support_log_grouped = pd.read_csv('/datasets/support_log_grouped.csv')
+
+def alert_group_importance(row):
+    alert_group = row['alert_group']
+    importance = row['importance']
+    
+    if (alert_group == '1') & (importance == 1):
+        return 'needed attention'
+    elif (alert_group == '2') & (importance == 1):
+        return 'high risk'
+    elif (alert_group == '3') & (importance == 1):
+        return 'blocker'
+    else:
+        return 'regular queue'
+
+support_log_grouped['importance_status'] = support_log_grouped.apply(alert_group_importance, axis=1)
+
+row_values = ['1', 1]
+row_columns = ['alert_group', 'importance']
+row = pd.Series(data=row_values, index=row_columns)
+#print(alert_group_importance(row))
+print(support_log_grouped)

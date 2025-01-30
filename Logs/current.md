@@ -85,3 +85,8 @@
 - dataframe decomposition
 - apply() method
 - Binning numerical values
+
+## 2025-01-30
+- processing dataframe rows with custom functions
+    - axis=0 (column)
+    - axis=1 (row)
