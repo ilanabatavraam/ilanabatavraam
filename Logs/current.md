@@ -90,3 +90,7 @@
 - processing dataframe rows with custom functions
     - axis=0 (column)
     - axis=1 (row)
+
+## 2025-01-31
+- knowing how to handle errors = key to being a great data analyst
+- I’ve started working on my first pet project! 🎉
