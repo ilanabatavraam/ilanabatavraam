@@ -7,3 +7,7 @@
 ## 2025-02-04
 - I've finished my first project on jupyter notebook. It doesnt seem perfect but now I see how exactly it works. I'm on my way to the next project.
 - Starting "Exploratory data analysis" (EDA) chapter in my course
+- hist(bins=, range=())
+- quartus Q1 Q2 Q3
+- boxplot() in python
+- import matplotlib.pyplot
