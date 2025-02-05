@@ -11,3 +11,4 @@
 - quartus Q1 Q2 Q3
 - boxplot() in python
 - import matplotlib.pyplot
+- query()
