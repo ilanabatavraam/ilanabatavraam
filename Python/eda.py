@@ -25,7 +25,29 @@ data['date_time'] = pd.to_datetime(
     data['date_time'], format='%Y%m%dT%H:%M:%S'
 )
 data['local_time'] = data['date_time'] + pd.Timedelta(hours=3)
-data['local_time'] = data['local_time'].dt.round('1H')
+data['local_time'] = data['local_time']
+sample = data[data['id'] == '3c1e4c52']
+
+sample.plot(style='o', x='local_time', y='time_spent', grid=True, figsize=(12, 6), ylim=(0, 1000))
+
+(
+    data.query('id == "3c1e4c52"')
+        .pivot_table(index='date_hour', values='time_spent', aggfunc='count')
+        .plot(grid=True, figsize=(12, 5))
+)
+
+data['too_fast'] = data['time_spent'] < 60
+print(data['too_fast'].mean())
+too_fast_stat = data.pivot_table(
+    index='id',
+    values='too_fast',
+    aggfunc='mean'
+)
+too_fast_stat.hist(bins=30)
+
+data['too_slow'] = data['time_spent'] > 1000
+too_slow_stat = data.pivot_table(index='id', values='too_slow')
+too_slow_stat.hist(bins=30)
 
 
 

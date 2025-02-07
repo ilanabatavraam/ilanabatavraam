@@ -12,3 +12,7 @@
 - boxplot() in python
 - import matplotlib.pyplot
 - query()
+
+## 2025-02-07
+- working with time formats pd.Timedelta, .dt.round('1H')
+- grafs .plot() 
