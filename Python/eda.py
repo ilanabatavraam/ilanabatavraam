@@ -21,6 +21,11 @@ data.hist('age', range=(18, 30))
 sample = data.query('id == "3c1e4c52"')
 print(sample['date_time'].count())
 
+data['date_time'] = pd.to_datetime(
+    data['date_time'], format='%Y%m%dT%H:%M:%S'
+)
+data['local_time'] = data['date_time'] + pd.Timedelta(hours=3)
+data['local_time'] = data['local_time'].dt.round('1H')
 
 
 
