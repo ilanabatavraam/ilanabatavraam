@@ -46,9 +46,15 @@ too_fast_stat = data.pivot_table(
 too_fast_stat.hist(bins=30)
 
 data['too_slow'] = data['time_spent'] > 1000
-too_slow_stat = data.pivot_table(index='id', values='too_slow')
-too_slow_stat.hist(bins=30)
+too_fast_stat = data.pivot_table(index='id', values='too_fast')
+good_ids = too_fast_stat.query('too_fast < 0.5')
+good_data = data.query('id in @good_ids.index')
+print(data.shape[0]) # 317104
+print(good_data.shape[0]) # 229095
 
+good_stations_stat = good_data.pivot_table(index='id', values='time_spent', aggfunc='median')
+good_stations_stat.hist(bins=50)
+good_stat = good_data.pivot_table(index='name', values='time_spent', aggfunc='median').sort_values(by='time_spent')
 
 
 df = pd.DataFrame(

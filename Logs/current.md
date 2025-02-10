@@ -16,3 +16,6 @@
 ## 2025-02-07
 - working with time formats pd.Timedelta, .dt.round('1H')
 - grafs .plot() 
+
+## 2025-02-10
+- analyzed a data slice from an external dictionary using Pandas (using .query())
