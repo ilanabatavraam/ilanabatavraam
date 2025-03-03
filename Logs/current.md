@@ -1,21 +1,2 @@
-## 2025-02-01
-- Working on loan_reliability_project using jupyter notebook (my first pet project)
-
-## 2025-02-02
-- I spent time (~2,5h) working on my project. I cleaned the data, fixed some weird values in the “children” column, and built pivot tables to see how loan purposes and family status relate to debts
-
-## 2025-02-04
-- I've finished my first project on jupyter notebook. It doesnt seem perfect but now I see how exactly it works. I'm on my way to the next project.
-- Starting "Exploratory data analysis" (EDA) chapter in my course
-- hist(bins=, range=())
-- quartus Q1 Q2 Q3
-- boxplot() in python
-- import matplotlib.pyplot
-- query()
-
-## 2025-02-07
-- working with time formats pd.Timedelta, .dt.round('1H')
-- grafs .plot() 
-
-## 2025-02-10
-- analyzed a data slice from an external dictionary using Pandas (using .query())
+## 2025-03-03
+- I’ve been going over my SQL and Python skills, trying to get better at them. At the same time, I’ve been really focusing on improving my Excel skills. I also added a few tasks I completed using Pandas and SQL. just practicing and getting more comfortable with them
